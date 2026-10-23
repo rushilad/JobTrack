@@ -1,0 +1,168 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>JobTrack - My Jobs</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+    <nav>
+
+        <h2>JobTrack</h2>
+
+        <div>
+
+            <a href="{% url 'home' %}">Home</a>
+
+            <a href="{% url 'job_list' %}">Jobs</a>
+
+            <a href="{% url 'add_job' %}">Add Job</a>
+
+            <a href="{% url 'dashboard' %}">Dashboard</a>
+
+        </div>
+
+    </nav>
+
+
+    <main>
+
+        <h1>My Job Applications</h1>
+
+
+        <!-- Search and Status Filter -->
+
+        <form method="GET">
+
+            <input
+                type="text"
+                name="search"
+                placeholder="Search company, role, location or status"
+                value="{{ search|default:'' }}"
+            >
+
+
+            <select name="status">
+
+                <option value="">All Status</option>
+
+                <option value="Applied"
+                    {% if status == "Applied" %}selected{% endif %}>
+                    Applied
+                </option>
+
+                <option value="Interview"
+                    {% if status == "Interview" %}selected{% endif %}>
+                    Interview
+                </option>
+
+                <option value="Selected"
+                    {% if status == "Selected" %}selected{% endif %}>
+                    Selected
+                </option>
+
+                <option value="Rejected"
+                    {% if status == "Rejected" %}selected{% endif %}>
+                    Rejected
+                </option>
+
+            </select>
+
+
+            <button type="submit">
+                Search
+            </button>
+
+
+            <a href="{% url 'job_list' %}">
+                <button type="button">
+                    Clear
+                </button>
+            </a>
+
+        </form>
+
+
+        <br>
+
+
+        <!-- Job List -->
+
+        {% for job in jobs %}
+
+            <div class="job-card">
+
+                <h2>{{ job.company }}</h2>
+
+
+                <p>
+                    <strong>Role:</strong>
+                    {{ job.role }}
+                </p>
+
+
+                <p>
+                    <strong>Location:</strong>
+                    {{ job.location }}
+                </p>
+
+
+                <p>
+                    <strong>Salary:</strong>
+                    ₹{{ job.salary }}
+                </p>
+
+
+                <p>
+                    <strong>Status:</strong>
+
+                    <span class="job-status">
+                        {{ job.status }}
+                    </span>
+
+                </p>
+
+
+                <p>
+                    <strong>Applied Date:</strong>
+                    {{ job.applied_date }}
+                </p>
+
+
+                <a href="/jobs/edit/{{ job.id }}/">
+                    <button type="button">
+                        Edit
+                    </button>
+                </a>
+
+
+                <a href="/jobs/delete/{{ job.id }}/">
+                    <button type="button">
+                        Delete
+                    </button>
+                </a>
+
+            </div>
+
+
+        {% empty %}
+
+            <p>
+                No jobs found.
+            </p>
+
+        {% endfor %}
+
+
+    </main>
+
+</body>
+
+</html>

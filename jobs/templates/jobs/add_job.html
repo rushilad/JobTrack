@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>JobTrack - Add Job</title>
+
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+
+<body>
+    
+    <nav>
+        <h2>JobTrack</h2>
+
+        <div>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'job_list' %}">Jobs</a>
+            <a href="{% url 'dashboard' %}">Dashboard</a>
+        </div>
+
+    </nav>
+
+
+    <main>
+
+        <h1>Add New Jobs</h1>
+
+        <div class="job-form">
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                {{form.as_p}}
+
+                <button type="submit">Save Job</button>
+
+            </form>
+
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

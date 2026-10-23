@@ -1,0 +1,233 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>JobTrack - Dashboard</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+    <nav>
+
+        <h2>JobTrack</h2>
+
+        <div>
+
+            <a href="{% url 'home' %}">Home</a>
+
+            <a href="{% url 'job_list' %}">Jobs</a>
+
+            <a href="{% url 'dashboard' %}">Dashboard</a>
+
+        </div>
+
+    </nav>
+
+
+    <main>
+
+        <div class="dashboard-container">
+
+            <h1>Job Dashboard</h1>
+
+
+            <!-- Dashboard Cards -->
+
+            <div class="dashboard-cards">
+
+
+                <!-- Total Applications -->
+
+                <a href="{% url 'job_list' %}" class="dashboard-link">
+
+                    <div class="dashboard-card">
+
+                        <h2>Total Applications</h2>
+
+                        <p class="dashboard-number">
+                            {{ total_jobs }}
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <!-- Applied -->
+
+                <a href="{% url 'job_list' %}?status=Applied"
+                   class="dashboard-link">
+
+                    <div class="dashboard-card">
+
+                        <h2>Applied</h2>
+
+                        <p class="dashboard-number">
+                            {{ applied }}
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <!-- Interview -->
+
+                <a href="{% url 'job_list' %}?status=Interview"
+                   class="dashboard-link">
+
+                    <div class="dashboard-card">
+
+                        <h2>Interview</h2>
+
+                        <p class="dashboard-number">
+                            {{ interview }}
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <!-- Selected -->
+
+                <a href="{% url 'job_list' %}?status=Selected"
+                   class="dashboard-link">
+
+                    <div class="dashboard-card">
+
+                        <h2>Selected</h2>
+
+                        <p class="dashboard-number">
+                            {{ selected }}
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <!-- Rejected -->
+
+                <a href="{% url 'job_list' %}?status=Rejected"
+                   class="dashboard-link">
+
+                    <div class="dashboard-card">
+
+                        <h2>Rejected</h2>
+
+                        <p class="dashboard-number">
+                            {{ rejected }}
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+            </div>
+
+
+            <!-- Application Status -->
+
+            <div class="chart-container">
+
+                <h2>Application Status</h2>
+
+
+                <!-- Applied -->
+
+                <div class="status-row">
+
+                    <span>Applied</span>
+
+                    <div class="status-bar">
+
+                        <div
+                            class="status-fill"
+                            style="width: {% if total_jobs %}{% widthratio applied total_jobs 100 %}{% else %}0{% endif %}%;">
+                        </div>
+
+                    </div>
+
+                    <strong>{{ applied }}</strong>
+
+                </div>
+
+
+                <!-- Interview -->
+
+                <div class="status-row">
+
+                    <span>Interview</span>
+
+                    <div class="status-bar">
+
+                        <div
+                            class="status-fill"
+                            style="width: {% if total_jobs %}{% widthratio interview total_jobs 100 %}{% else %}0{% endif %}%;">
+                        </div>
+
+                    </div>
+
+                    <strong>{{ interview }}</strong>
+
+                </div>
+
+
+                <!-- Selected -->
+
+                <div class="status-row">
+
+                    <span>Selected</span>
+
+                    <div class="status-bar">
+
+                        <div
+                            class="status-fill"
+                            style="width: {% if total_jobs %}{% widthratio selected total_jobs 100 %}{% else %}0{% endif %}%;">
+                        </div>
+
+                    </div>
+
+                    <strong>{{ selected }}</strong>
+
+                </div>
+
+
+                <!-- Rejected -->
+
+                <div class="status-row">
+
+                    <span>Rejected</span>
+
+                    <div class="status-bar">
+
+                        <div
+                            class="status-fill"
+                            style="width: {% if total_jobs %}{% widthratio rejected total_jobs 100 %}{% else %}0{% endif %}%;">
+                        </div>
+
+                    </div>
+
+                    <strong>{{ rejected }}</strong>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

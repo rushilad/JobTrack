@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>JobTrack - Login</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+    <nav>
+
+        <h2>JobTrack</h2>
+
+        <div>
+
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'job_list' %}">Jobs</a>
+            <a href="{% url 'dashboard' %}">Dashboard</a>
+            <a href="{% url 'signup' %}">Sign Up</a>
+
+        </div>
+
+    </nav>
+
+
+    <main>
+
+        <h1>Login to JobTrack</h1>
+
+        <div class="login-form">
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+
+                <div class="login-field">
+
+                    <label for="{{ form.username.id_for_label }}">
+                        Username
+                    </label>
+
+                    {{ form.username }}
+
+                </div>
+
+
+                <div class="login-field">
+
+                    <label for="{{ form.password.id_for_label }}">
+                        Password
+                    </label>
+
+                    {{ form.password }}
+
+                </div>
+
+
+                <button type="submit">
+                    Login
+                </button>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
