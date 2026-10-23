@@ -1,0 +1,454 @@
+/* ==============================
+   GLOBAL
+   ============================== */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f6f8;
+    color: #111827;
+}
+
+
+/* ==============================
+   NAVIGATION
+   ============================== */
+
+nav {
+    background-color: #1f2937;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 16px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+
+/* ==============================
+   MAIN CONTENT
+   ============================== */
+
+main {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+main h1 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+
+/* ==============================
+   BUTTONS
+   ============================== */
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    background-color: #1f2937;
+    color: white;
+    transition: 0.2s ease;
+}
+
+button:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+
+/* ==============================
+   SEARCH & FILTER
+   ============================== */
+
+main form:not(.job-form) {
+    max-width: 900px;
+    margin: 0 auto 30px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+main form:not(.job-form) input,
+main form:not(.job-form) select {
+    padding: 11px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 15px;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+main form:not(.job-form) input {
+    width: 350px;
+}
+
+main form:not(.job-form) select {
+    width: 160px;
+}
+
+main form:not(.job-form) input:focus,
+main form:not(.job-form) select:focus {
+    outline: none;
+    border-color: #1f2937;
+}
+
+
+/* ==============================
+   JOB CARDS
+   ============================== */
+
+.job-card {
+    background-color: white;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: left;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.job-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 18px rgba(0, 0, 0, 0.12);
+}
+
+.job-card h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    color: #1f2937;
+    font-size: 23px;
+}
+
+.job-card p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.job-card strong {
+    color: #374151;
+}
+
+
+/* ==============================
+   JOB STATUS
+   ============================== */
+
+.job-status {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+/* ==============================
+   JOB ACTION BUTTONS
+   ============================== */
+
+.job-card a {
+    text-decoration: none;
+}
+
+.job-card a:first-of-type button {
+    background-color: #1f2937;
+}
+
+.job-card a:last-of-type button {
+    background-color: #6b7280;
+}
+
+
+/* ==============================
+   JOB FORM
+   ============================== */
+
+.job-form {
+    background-color: white;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: left;
+}
+
+.job-form p {
+    margin-bottom: 20px;
+}
+
+.job-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.job-form input,
+.job-form select {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.job-form input:focus,
+.job-form select:focus {
+    outline: none;
+    border-color: #1f2937;
+}
+
+
+/* ==============================
+   DASHBOARD
+   ============================== */
+
+.dashboard-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.dashboard-container h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 36px;
+}
+
+
+/* ==============================
+   DASHBOARD CARDS
+   ============================== */
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.dashboard-card {
+    background-color: white;
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.dashboard-card h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #1f2937;
+}
+
+.dashboard-number {
+    font-size: 38px;
+    font-weight: bold;
+    margin: 0;
+    color: #111827;
+}
+
+
+/* ==============================
+   APPLICATION STATUS CHART
+   ============================== */
+
+.chart-container {
+    background-color: white;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.chart-container h2 {
+    margin-top: 0;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #1f2937;
+}
+
+.status-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 40px;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.status-bar {
+    height: 18px;
+    background-color: #e5e7eb;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.status-fill {
+    height: 100%;
+    background-color: #1f2937;
+    border-radius: 10px;
+}
+
+.status-row strong {
+    text-align: right;
+}
+
+
+/* ==============================
+   RESPONSIVE DESIGN
+   ============================== */
+
+@media (max-width: 768px) {
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-container {
+        padding: 10px;
+    }
+
+    main {
+        padding: 30px 15px;
+    }
+
+    main h1 {
+        font-size: 30px;
+    }
+
+    main form:not(.job-form) {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    main form:not(.job-form) input,
+    main form:not(.job-form) select {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .job-card {
+        padding: 20px;
+    }
+
+}
+
+/* ==============================
+   DASHBOARD CARD LINKS
+   ============================== */
+
+.dashboard-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.dashboard-link:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.dashboard-link .dashboard-card {
+    color: #111827;
+}
+
+.dashboard-link .dashboard-card h2 {
+    color: #1f2937;
+    text-decoration: none;
+}
+
+.dashboard-link .dashboard-card p {
+    color: #111827;
+    text-decoration: none;
+}
+
+/* ==============================
+   LOGIN FORM
+   ============================== */
+
+.login-form {
+    background-color: white;
+    max-width: 420px;
+    margin: 30px auto;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.login-field {
+    margin-bottom: 22px;
+}
+
+.login-field label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #1f2937;
+}
+
+.login-field input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.login-field input:focus {
+    outline: none;
+    border-color: #1f2937;
+    box-shadow: 0 0 0 2px rgba(31, 41, 55, 0.08);
+}
+
+.login-form button {
+    display: block;
+    margin: 10px auto 0 auto;
+    min-width: 120px;
+}
